@@ -30,7 +30,7 @@ engine = create_engine('sqlite:///clothingapp.db',\
 # sqlite3 engine. Using this object will allow you to
 # add and query the database.
 db_session = sessionmaker(bind=engine)
-session = db_session()
+db_session = db_session()
 # Example:
 #       # Query Clothes
 #       clothes = session.query(Clothing).all()
@@ -59,7 +59,7 @@ def register_process():
     username = request.form["new-username"]
     password = request.form["new-password"]
 
-    user = User.query.filter(User.user_id==username).first()
+    user = db_session.query(User).filter_by(user_id=username).first()
 
     if user:
         # flash("That username is already taken!")
@@ -67,8 +67,8 @@ def register_process():
     else:
         new_user = User(user_id=username, password=password)
         
-        db.session.add(new_user)
-        db.session.commit()
+        db_session.add(new_user)
+        db_session.commit()
 
         user_id = new_user.user_id
         session['logged_user'] = {'username': username}
@@ -89,7 +89,7 @@ def login_current_user():
     username = request.form.get("username")
     password = request.form.get("password")
 
-    user = User.query.filter(User.user_id==username).first()
+    user = db_session.query(User).filter_by(user_id=username).first()
 
     if user:
         if user.password == password:

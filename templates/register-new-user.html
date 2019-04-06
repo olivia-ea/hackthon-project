@@ -1,0 +1,14 @@
+<html>
+    <head>
+    </head>
+
+    <body>
+        <h1>Create a new Account</h1>
+        <form action="{{ url_for('register_process') }}" method='post'>
+            <p>Email: </p>
+            <input type="text" placeholder="Username" name="new-username">
+            <input type="password" placeholder="Password" name="new-password">
+            <input type="submit" value="Create">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+<html>
+    <head>
+    </head>
+
+    <body>
+        <h1>Log In</h1>
+        <form action="{{ url_for('login_current_user') }}" method='post'>
+            <p>Email: </p>
+            <input type="text" placeholder="Username" name="username">
+            <input type="password" placeholder="Password" name="password">
+            <input type="submit" value="Create">
+        </form>
+    </body>
+</html>

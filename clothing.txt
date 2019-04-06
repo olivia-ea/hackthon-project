@@ -1,0 +1,18 @@
+hooded-utility-jacket|1|20|Forever21|Hooded Utility Jacket|5.00|https://www.forever21.com/images/1_front_750/00284802-03.jpg
+striped-hooded-anorak|2|25|Forever21|Striped Hooded Anorak|5.00|https://www.forever21.com/images/1_front_750/00326266-03.jpg
+ribbed-trim-knit-sweater|3|40|Forever21|Ribbed Trim Knit Sweater|3.00|https://www.forever21.com/images/1_front_750/00325414-06.jpg
+more-love-graphic-tee|4|60|Forever21|More Love Graphic Tee|1.50|https://www.forever21.com/images/1_front_750/00339549-03.jpg
+embroidered-leaf-shirt|5|25|Forever21|Embroidered Leaf Shirt|1.75|https://www.forever21.com/images/1_front_750/00347487-02.jpg
+pleated-sleeve-top|6|30|Forever21|Pleated Sleeve Top|1.50|https://www.forever21.com/images/1_front_750/00354491-01.jpg
+high-low-button-front-shirt|7|40|Forever21|High-Low Button-Front Shirt|2.00|https://www.forever21.com/images/1_front_750/00318910-08.jpg
+striped-paperbag-pants|8|40|Forever21|Striped Paperbag Pants|2.00|https://www.forever21.com/images/1_front_750/00333087-02.jpg
+chambray-belted-wide-leg-pants|9|30|Forever21|Chambray Belted Wide Leg Pants|3.00|https://www.forever21.com/images/1_front_750/00312066-03.jpg
+packable-jacket|10|50|Forever21|Packable Jacket|3.00|https://www.forever21.com/images/4_full_750/00320754-01.jpg
+button-front-denim-jacket|11|25|Forever21|Button-Front Denim Jacket|3.00|https://www.forever21.com/images/1_front_750/00341644-02.jpg
+striped-crew-neck-tee|12|60|Forever21|Striped Crew Neck Tee|1.00|https://www.forever21.com/images/1_front_750/00354167-06.jpg
+tie-dye-jersey-mesh-shirt|13|60|Forever21|Tie-Dye Jersey Mesh Shirt|1.50|https://www.forever21.com/images/1_front_750/00341930-02.jpg
+knit-curved-high-low-tee|14|100|Forever21|Knit Curved High-Low Tee|1.00|https://www.forever21.com/images/1_front_750/00362431-06.jpg
+striped-jersey-mesh-tee|15|60|Forever21|Striped Jersey Mesh Tee|1.50|https://www.forever21.com/images/1_front_750/00342060-03.jpg
+skinny-jeans|16|80|Forever21|Skinny Jeans|5.00|https://www.forever21.com/images/1_front_750/00339921-04.jpg
+coin-pocket-chino-shorts|17|100|Forever21|Coin-Pocket Chino Shorts|2.50|https://www.forever21.com/images/1_front_750/00329616-07.jpg
+floral-print-swim-trunks|18|100|Forever21|Floral Print Swim Trunks|2.50|https://www.forever21.com/images/1_front_750/00350378-05.jpg

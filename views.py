@@ -113,7 +113,7 @@ def about():
 def display_package_clothing():
     """Display page for bulk clothing package."""
 
-    clothes = session.query(Clothing).all()
+    clothes = db_session.query(Clothing).all()
 
     return render_template("display_clothing.html", clothing=clothing)
 
@@ -129,7 +129,7 @@ def display_shopping_cart():
 
     for clothing_id, quantity in cart.items():
         # Retrieve the clothing object corresponding to this id
-        clothing = session.query(Clothing).all()
+        clothing = db_session.query(Clothing).all()
 
         # Calculate the total cost for this type of clothing and add it to the
         # overall total for the order

@@ -103,6 +103,11 @@ def login_current_user():
         # flash("That username doesn't exist!")
         return redirect("/register-new-user")
 
+@app.route('/about')
+def about():
+    """ About """
+
+    return render_template('about.html')
 
 @app.route("/shopping-page")
 def display_package_clothing():

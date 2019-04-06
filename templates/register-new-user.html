@@ -1,14 +1,62 @@
+<!DOCTYPE html>
 <html>
-    <head>
-    </head>
+<head>
+    <title>ImpoverPOSHed Register</title>
 
-    <body>
-        <h1>Create a new Account</h1>
-        <form action="{{ url_for('register_process') }}" method='post'>
-            <p>Email: </p>
-            <input type="text" placeholder="Username" name="new-username">
-            <input type="password" placeholder="Password" name="new-password">
-            <input type="submit" value="Create">
-        </form>
-    </body>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <!-- START NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item">
+              <a class="nav-link" href="./">Home</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">Get Stuff</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">Give Stuff</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./login-current-user">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./about">About</a>
+          </li>
+
+      <!-- Dont need a dropdown right now
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+      -->
+      </div>
+      <!-- END NAVBAR-->
+      
+    Hello World!
+</body>
 </html>

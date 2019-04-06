@@ -3,15 +3,48 @@ from flask import Flask, request, redirect, render_template, flash, session, jso
 from jinja2 import StrictUndefined
 # import requests
 
+from sqlalchemy import create_engine
+from sqlalchemy.orm import scoped_session, sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+
+from model import User, Clothing
+
 
 app = Flask(__name__)
 app.jinja_env.undefinded = StrictUndefined
 app.debug = True
 
+
+##
+# Import staticpool for the allowance of handling a connection over
+# multiple threads, since Flask + SQlite gives an error when going from one page to another
+# Initialize engine with connect_args: check_same_thread:False
+# NOTE: http://docs.sqlalchemy.org/en/latest/dialects/sqlite.html
+from sqlalchemy.pool import StaticPool
+engine = create_engine('sqlite:///clothingapp.db',\
+        connect_args={'check_same_thread' : False}, poolclass=StaticPool)
+
+
+
+# initializes a new database session connected to the
+# sqlite3 engine. Using this object will allow you to
+# add and query the database.
+db_session = sessionmaker(bind=engine)
+session = db_session()
+# Example:
+#       # Query Clothes
+#       clothes = session.query(Clothing).all()
+#       
+#       # Add Clothes
+#       newItem = Clothing(name="Pink Shirt", lot_number=15)
+#       session.add(newItem)
+#       session.commit()
+
+
+
 @app.route('/')
 def index():
     """ Homepage """
-
     return render_template('homepage.html')
 
 @app.route('/register-new-user', methods=['GET'])

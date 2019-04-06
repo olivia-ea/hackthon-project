@@ -3,15 +3,48 @@ from flask import Flask, request, redirect, render_template, flash, session, jso
 from jinja2 import StrictUndefined
 # import requests
 
+from sqlalchemy import create_engine
+from sqlalchemy.orm import scoped_session, sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+
+from model import User, Clothing
+
 
 app = Flask(__name__)
 app.jinja_env.undefinded = StrictUndefined
 app.debug = True
 
+
+##
+# Import staticpool for the allowance of handling a connection over
+# multiple threads, since Flask + SQlite gives an error when going from one page to another
+# Initialize engine with connect_args: check_same_thread:False
+# NOTE: http://docs.sqlalchemy.org/en/latest/dialects/sqlite.html
+from sqlalchemy.pool import StaticPool
+engine = create_engine('sqlite:///clothingapp.db',\
+        connect_args={'check_same_thread' : False}, poolclass=StaticPool)
+
+
+
+# initializes a new database session connected to the
+# sqlite3 engine. Using this object will allow you to
+# add and query the database.
+db_session = sessionmaker(bind=engine)
+session = db_session()
+# Example:
+#       # Query Clothes
+#       clothes = session.query(Clothing).all()
+#       
+#       # Add Clothes
+#       newItem = Clothing(name="Pink Shirt", lot_number=15)
+#       session.add(newItem)
+#       session.commit()
+
+
+
 @app.route('/')
 def index():
     """ Homepage """
-
     return render_template('homepage.html')
 
 @app.route('/register-new-user', methods=['GET'])
@@ -42,7 +75,7 @@ def register_process():
 
         # flash(f"User {username} added.")
 
-        return redirect("/activity-page")
+        return redirect("/shopping-page")
 
 @app.route('/login-current-user', methods=['GET'])
 def login_form():
@@ -75,3 +108,80 @@ def about():
     """ About """
 
     return render_template('about.html')
+
+@app.route("/shopping-page")
+def display_package_clothing():
+    """Display page for bulk clothing package."""
+
+    clothes = session.query(Clothing).all()
+
+    return render_template("display_clothing.html", clothing=clothing)
+
+@app.route("/cart")
+def display_shopping_cart():
+    """Display contents of shopping cart."""
+
+    order_total = 0
+
+    cart_clothing = []
+
+    cart = session.get("cart", {})
+
+    for clothing_id, quantity in cart.items():
+        # Retrieve the clothing object corresponding to this id
+        clothing = session.query(Clothing).all()
+
+        # Calculate the total cost for this type of clothing and add it to the
+        # overall total for the order
+        total_cost = quantity * clothing.price
+        order_total += total_cost
+
+        # Add the quantity and total cost as attributes on the Clothing object
+        clothing.quantity = quantity
+        clothing.total_cost = total_cost
+
+        # Add the Clothing object to our list
+        cart_clothing.append(clothing)
+
+    # Pass the list of Clothing objects and the order total to our cart template
+    return render_template("cart.html",
+                           cart=cart_clothing,
+                           order_total=order_total)
+
+@app.route("/add_to_cart/<clothing_id>")
+def add_to_cart(melon_id):
+    """Add a clothing item to cart and redirect to shopping cart page.
+
+    When clothing is added to the cart, redirect browser to the shopping cart
+    page and display a confirmation message. """
+
+    # Check if we have a cart in the session and if not, add one
+    # Also, bind the cart to the name 'cart' for easy reference below
+    if 'cart' in session:
+        cart = session['cart']
+    else:
+        cart = session['cart'] = {}
+
+    # Add clothing to cart - either increment the count (if clothing already in cart)
+    # or add to cart with a count of 1
+    cart[clothing_id] = cart.get(clothing_id, 0) + 1
+
+    # Show user success message on next page load
+    flash("Item successfully added to cart.")
+
+    # Redirect to shopping cart page
+    return redirect("/cart")
+
+@app.route("/checkout")
+def checkout():
+    """"Checkout customer, process payment, ect."""
+    pass
+
+@app.route('/logout')
+def logout():
+    """Log out."""
+
+    session.clear()
+    # flash("Logged Out.")
+
+    return redirect("/")

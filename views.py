@@ -103,28 +103,14 @@ def login_current_user():
         # flash("That username doesn't exist!")
         return redirect("/register-new-user")
 
-@app.route("/package-page")
-def display_packages():
-    """"Display page for clothing package options."""
-    pass
 
-@app.route("/shopping-page-single")
-def display_clothing():
-    """Display page for single clothing package."""
-
-    clothing_single = clothing.get_by_id(clothing_id)
-
-    print(clothing_single)
-
-    return render_template("all_clothing.html", clothing_single=clothing_single)
-
-@app.route("/shopping-page-package")
+@app.route("/shopping-page")
 def display_package_clothing():
     """Display page for bulk clothing package."""
 
-    clothing_bulk = clothing.get_by_id(clothing_id)
+    clothes = session.query(Clothing).all()
 
-    print(clothing_bulk)
+    return render_template("display_clothing.html", clothing=clothing)
 
 @app.route("/cart")
 def display_shopping_cart():
@@ -138,7 +124,7 @@ def display_shopping_cart():
 
     for clothing_id, quantity in cart.items():
         # Retrieve the clothing object corresponding to this id
-        clothing = clothing.get_by_id(clothing_id)
+        clothing = session.query(Clothing).all()
 
         # Calculate the total cost for this type of clothing and add it to the
         # overall total for the order
@@ -176,7 +162,7 @@ def add_to_cart(melon_id):
     cart[clothing_id] = cart.get(clothing_id, 0) + 1
 
     # Show user success message on next page load
-    flash("Melon successfully added to cart.")
+    flash("Item successfully added to cart.")
 
     # Redirect to shopping cart page
     return redirect("/cart")
@@ -185,3 +171,12 @@ def add_to_cart(melon_id):
 def checkout():
     """"Checkout customer, process payment, ect."""
     pass
+
+@app.route('/logout')
+def logout():
+    """Log out."""
+
+    session.clear()
+    # flash("Logged Out.")
+
+    return redirect("/")

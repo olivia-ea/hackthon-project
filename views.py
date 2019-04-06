@@ -32,7 +32,7 @@ def register_process():
         # flash("That username is already taken!")
         return redirect("/login-current-user")
     else:
-        new_user = User(user_id=username, password=password, auth_token=session.get('access_token'), refresh_token=session.get('refresh_token'))
+        new_user = User(user_id=username, password=password)
         
         db.session.add(new_user)
         db.session.commit()

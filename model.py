@@ -1,31 +1,42 @@
-"""Models and databases"""
+"""Bases and databases"""
 
-from flask_sqlalchemy import SQLAlchemy
 
-db = SQLAlchemy()
+import sys
+from sqlalchemy import Column, ForeignKey, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship
+from sqlalchemy import create_engine
 
-class User(db.Model):
+Base = declarative_base()
+
+class User(Base):
     __tablename__ = 'users'
 
-    user_id = db.Column(db.String(50), primary_key=True)
-    password = db.Column(db.String(50), nullable=False)
+    user_id = Column(String(50), primary_key=True)
+    password = Column(String(50), nullable=False)
 
     def __repr__(self):
-        return f'<User user_id={self.user_id}>'x
+        return f'<User user_id={self.user_id}>'
 
+class Clothing(Base):
+    __tablename__ = 'clothes'
 
-def connect_to_db(app):
-    """Connect the database to Flask app."""
+    name = Column(String(50), nullable=False)
+    article_id = Column(Integer, primary_key=True)
+    lot_number = Column(Integer, nullable=False)
+    retailer = Column(String(30))
+    description = Column(String(250))
 
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///users'
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['SQLALCHEMY_ECHO'] = True
-    db.app = app
-    db.init_app(app)
+    @property
+    def serialize(self):
+        return {
+            'name' : self.name,
+            'description' : self.description,
+            'article_id' : self.article_id,
+            'retailer' : self.retailed
+            }
+
 
 if __name__ == '__main__':
-    from server import app
-
-    connect_to_db(app)
-    db.create_all()
-    print('Connected to DB.')
+    engine = create_engine('sqlite:///clothingapp.db')
+    Base.metadata.create_all(engine)

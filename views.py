@@ -69,3 +69,9 @@ def login_current_user():
     else:
         # flash("That username doesn't exist!")
         return redirect("/register-new-user")
+
+@app.route('/about')
+def about():
+    """ About """
+
+    return render_template('about.html')

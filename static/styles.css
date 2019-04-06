@@ -1,0 +1,12 @@
+.colorful {
+  background:
+    -webkit-linear-gradient(315deg, hsla(317.86, 98.75%, 45.45%, 1) 0%, hsla(317.86, 98.75%, 45.45%, 0) 70%),
+    -webkit-linear-gradient(65deg, hsla(110.79, 97.73%, 49.49%, 1) 10%, hsla(110.79, 97.73%, 49.49%, 0) 80%),
+    -webkit-linear-gradient(135deg, hsla(139.83, 96.07%, 49.06%, 1) 15%, hsla(139.83, 96.07%, 49.06%, 0) 80%),
+    -webkit-linear-gradient(205deg, hsla(149.81, 94.45%, 45.6%, 1) 100%, hsla(149.81, 94.45%, 45.6%, 0) 70%);
+  background:
+    linear-gradient(135deg, hsla(317.86, 98.75%, 45.45%, 1) 0%, hsla(317.86, 98.75%, 45.45%, 0) 70%),
+    linear-gradient(25deg, hsla(110.79, 97.73%, 49.49%, 1) 10%, hsla(110.79, 97.73%, 49.49%, 0) 80%),
+    linear-gradient(315deg, hsla(139.83, 96.07%, 49.06%, 1) 15%, hsla(139.83, 96.07%, 49.06%, 0) 80%),
+    linear-gradient(245deg, hsla(149.81, 94.45%, 45.6%, 1) 100%, hsla(149.81, 94.45%, 45.6%, 0) 70%);
+  }

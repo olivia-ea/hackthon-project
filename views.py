@@ -152,7 +152,6 @@ def display_package_clothing():
                 db_session.add(new_clothing)
                 db_session.commit()
     clothing = db_session.query(Clothing).all()
-    print(clothing)
     return render_template("display_clothing.html", clothing=clothing)
 
 @app.route("/cart")

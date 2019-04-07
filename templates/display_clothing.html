@@ -2,8 +2,31 @@
     <head>
         <title>Browse Our Inventory</title>
         <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            .center {
+                text-align: center;
+            }
             table, th, td {
                 border: 1px solid black;
+            }
+
+            tr:hover {
+                box-shadow: 0 8px 12px 0 rgba(0,0,0,0.1);
+            }
+
+            th {
+               background-color: #111;
+               color: white;
+               font-size: 25px;
+            }
+
+            td {
+                border-bottom: 1px solid #eee;
+                padding: 20px;
+                text-align: center;
             }
         </style>
         <meta charset="utf-8">
@@ -18,7 +41,7 @@
     </head>
 
     <body>
-        <h1>Browse Our Inventory</h1>
+        <div class="center"><h1>Browse Our Inventory</h1></div>
         <table>
             <tr>
                 <th>Item Name</th>

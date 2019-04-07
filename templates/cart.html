@@ -6,11 +6,23 @@
         <table>
         {% for item in cart %}
         <tr>
-            <td>Item Name: {{ item.name }}</td>
+            <td>Item Name: {{ title_case(item.name) }}</td>
             <td>Item Individual Price: $ {{ item.price }}</td>
             <td>Item Quantity: {{ item.quantity }}</td>
             <td>Item Total Cost: {{ item.total_cost }}</td>
         </tr>
         {% endfor %}
+        </table>
+        <button onclick="goBack()">Go Back</button>
+        <button onclick="completeOrder()">Complete Order</button>
     </body>
+    <script>
+        function goBack(){
+            window.history.back();
+        }
+        
+        function completeOrder(){
+            window.location.assign("/complete_order/");
+        }
+    </script>
 </html>

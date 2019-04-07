@@ -1,0 +1,16 @@
+<html>
+    <head>
+    </head>
+    <body>
+        Total Price: $ {{ order_total }} <br />
+        <table>
+        {% for item in cart %}
+        <tr>
+            <td>Item Name: {{ item.name }}</td>
+            <td>Item Individual Price: $ {{ item.price }}</td>
+            <td>Item Quantity: {{ item.quantity }}</td>
+            <td>Item Total Cost: {{ item.total_cost }}</td>
+        </tr>
+        {% endfor %}
+    </body>
+</html>

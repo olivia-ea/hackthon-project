@@ -27,7 +27,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                    <a class="nav-link" href="/">Homepage</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://github.com/olivia-ea/hackthon-project">Github</a>
@@ -79,9 +79,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="remember-me" class="text-info"><span>REMEMBER ME</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                                <center>
                                 <input type="submit" name="submit" class="btn btn-info btn-md" value="Create">
+                                </center>
                             </div>
-                            <div id="register-link" class="text-right">
+                            <br>
+                            <br>
+                            <div id="register-link" class="text-left">
                                 <a href="{{ url_for('login_form') }}" class="text-info">Have an account? Login Here.</a>
                             </div>
                         </form>

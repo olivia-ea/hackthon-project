@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ImpoverPOSHed</title>
+    <title>About ImpoverPOSHed</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,11 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-
-
-
-<body class="colorful">
-
+<body class="colorful" onload="getrags()">
     <!-- START NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Navbar</a>
@@ -43,23 +39,24 @@
             <li class="nav-item">
               <a class="nav-link" href="./about">About</a>
             </li>
-
-        <!-- Dont need a dropdown right now
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-        -->
-        </div>
-        <!-- END NAVBAR-->
       </nav>
-    <h2>Don't be impoverished, Be ImpoverPOSHed!</h2>
-  </body>
+      <!-- END NAVBAR-->
+
+      <script>
+        function displayRags(rags) {
+          console.log("appending rags")
+          console.log(rags)
+          const ragHolder = document.getElementById('ragHolder');
+          rags.forEach(function(rag) {
+            ragHolder.append("<div class='flexRag'>" + rag.toString() + "</div>")
+          })
+        }
+
+        function getRags() {
+          console.log("getting rags")
+          fetch('./get_rags').then(display_rags(result)).catch((function(err){console.error(err)}))
+        }
+      </script>
+
+</body>
 </html>

@@ -185,3 +185,10 @@ def logout():
     # flash("Logged Out.")
 
     return redirect("/")
+
+@app.route('/get_rags')
+def get_rags():
+    """Returns the clothes as JSON to the frontend so I can be lazy and not learn server-side template in Python -brian"""
+    
+    rags = db_session.query(Clothing).all()
+    return jsonify(rags)

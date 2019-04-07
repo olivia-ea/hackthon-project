@@ -12,33 +12,36 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+
+    <link rel="stylesheet" href="../static/css/register-new-user.css">
 </head>
 <body>
     <!-- START NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/olivia-ea/hackthon-project">Github</a>
+                </li>
+            </ul>
 
-            <li class="nav-item">
-                <a class="nav-link" href="./">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Get Stuff</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Give Stuff</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./login-current-user">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./about">About</a>
-            </li>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="/login-current-user">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/register-new-user">Register</a>
+                </li>
+            </ul>
 
         <!-- Dont need a dropdown right now
             <li class="nav-item dropdown">
@@ -64,17 +67,17 @@
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
                         <form id="login-form" class="form" action="{{ url_for('register_process') }}" method="post">
-                            <h3 class="text-center text-info">Register</h3>
+                            <h3 class="text-center text-info">REGISTER</h3>
                             <div class="form-group">
-                                <label for="username" class="text-info">Desired Username:</label><br>
+                                <label for="username" class="text-info">USERNAME:</label><br>
                                 <input type="text" name="new-username" id="username" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="password" class="text-info">Desired Password:</label><br>
+                                <label for="password" class="text-info">PASSWORD:</label><br>
                                 <input type="password" name="new-password" id="password" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                                <label for="remember-me" class="text-info"><span>REMEMBER ME</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
                                 <input type="submit" name="submit" class="btn btn-info btn-md" value="Create">
                             </div>
                             <div id="register-link" class="text-right">

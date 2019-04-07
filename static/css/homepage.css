@@ -48,19 +48,45 @@ html {
     padding-left: 50px;
 }
 
+.color-box {
+    background-color:#add8e6; 
+}
+
+
 #about-section {
-    background: #D3D3D3;
+    background: #add8e6;
     font-family: 'Merriweather', serif;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#partners {
+    background: #add8e6;
+    font-family: 'Merriweather', serif;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#explain-section {
+    background: #add8e6;
+    font-family: 'Merriweather', serif;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 blockquote {
     border-left: 5px solid #2d6c39;
-/*    color: #795548;*/
     font: 'opensans-bold', sans-serif;
     font-weight: bold;
     font-size: 30px;
-    margin: 20px 0;
+    margin-top: 35px;
+    margin-right: 0px;
+    margin-bottom: 35px;
+    margin-left: -45px;
     padding: 15px;
 }
+
+p {
+    font-size: 16px;
+}
+

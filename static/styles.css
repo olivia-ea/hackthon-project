@@ -1,12 +1,31 @@
-.colorful {
-  background:
-    -webkit-linear-gradient(315deg, hsla(35, 95%, 55%, 1) 0%, hsla(35, 95%, 55%, 0) 70%),
-    -webkit-linear-gradient(65deg, hsla(140, 90%, 50%, 1) 10%, hsla(140, 90%, 50%, 0) 80%),
-    -webkit-linear-gradient(135deg, hsla(225, 95%, 50%, 1) 15%, hsla(225, 95%, 50%, 0) 80%),
-    -webkit-linear-gradient(205deg, hsla(340, 100%, 55%, 1) 100%, hsla(340, 100%, 55%, 0) 70%);
-  background:
-    linear-gradient(135deg, hsla(35, 95%, 55%, 1) 0%, hsla(35, 95%, 55%, 0) 70%),
-    linear-gradient(25deg, hsla(140, 90%, 50%, 1) 10%, hsla(140, 90%, 50%, 0) 80%),
-    linear-gradient(315deg, hsla(225, 95%, 50%, 1) 15%, hsla(225, 95%, 50%, 0) 80%),
-    linear-gradient(245deg, hsla(340, 100%, 55%, 1) 100%, hsla(340, 100%, 55%, 0) 70%);
-  }
+.clothing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.clothing-item {
+  display: inline;
+  border-radius: 8px;
+}
+
+.clothing-item:hover {
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.1);
+}
+
+.clothing-image {
+  margin: 3px;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.center {
+  text-align: center;
+}
+
+.shop-header {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}

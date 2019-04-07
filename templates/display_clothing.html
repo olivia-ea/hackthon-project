@@ -2,11 +2,6 @@
 <html>
     <head>
         <title>Browse Our Inventory</title>
-        <style>
-            table, th, td {
-                border: 1px solid black;
-            }
-        </style>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -47,14 +42,15 @@
       </nav>
       <!-- END NAVBAR-->
 
-    <body>
-        <h1 class='center'>Browse Our Inventory</h1>
+    <body >
+        <h1 class='shop-header center'>Browse Our Inventory</h1>
         <div class='clothing-grid'>
         {% for item in clothing %}
             <div class='clothing-item center'>
                 <h4>{{ title_case(item.name) }} </h4>
                 <img src="{{ item.link }}" alt="{{ item.name }}" class="clothing-image">
-                <p><button><a href="/add_to_cart/{{ item.article_id }}">Buy Now</a></button></p>
+                <br/>
+                <a href="/add_to_cart/{{ item.article_id }}"><button type="button" class="btn btn-primary">Buy Now</button></a>
                 <p>{{ item.description }} </p>
                 <p>{{ "$%.2f"|format(item.price) }} </p>
             </div>

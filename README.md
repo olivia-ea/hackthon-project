@@ -59,3 +59,9 @@ $ python3 server.py
 Open localhost:5000 on browser.
 
 ## Demo
+
+![](slashed-1.gif)
+
+![](slashed-2.gif)
+
+![](slashed-3.gif)

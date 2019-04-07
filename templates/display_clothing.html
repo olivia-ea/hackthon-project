@@ -1,41 +1,5 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>About ImpoverPOSHed</title>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./static/styles.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</head>
-<body class="colorful" onload="getrags()">
-    
-
-      <script>
-        function displayRags(rags) {
-          console.log("appending rags")
-          console.log(rags)
-          const ragHolder = document.getElementById('ragHolder');
-          rags.forEach(function(rag) {
-            ragHolder.append("<div class='flexRag'>" + rag.toString() + "</div>")
-          })
-        }
-
-        function getRags() {
-          console.log("getting rags")
-          fetch('./get_rags').then(display_rags(result)).catch((function(err){console.error(err)}))
-        }
-      </script>
-
-</body>
-</html>
--->
-<html>
     <head>
         <title>Browse Our Inventory</title>
         <style>
@@ -84,30 +48,17 @@
       <!-- END NAVBAR-->
 
     <body>
-        <h1>Browse Our Inventory</h1>
-        <table>
-            <tr>
-                <th>Item Name</th>
-                <th>Item ID</th>
-                <th>Lot #</th>
-                <th>Retailer</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Image</th>
-                <th>Buy</th>
-            </tr>
+        <h1 class='center'>Browse Our Inventory</h1>
+        <div class='clothing-grid'>
         {% for item in clothing %}
-            <tr>
-                <td>{{ title_case(item.name) }} </td>
-                <td>{{ item.article_id }} </td>
-                <td>{{ item.lot_number }} </td>
-                <td>{{ item.retailer }} </td>
-                <td>{{ item.description }} </td>
-                <td>{{ item.price }} </td>
-                <td><img src="{{ item.link }}" alt="{{ item.name }}" width=200px height=200px></td>
-                <td><a href="/add_to_cart/{{ item.article_id }}">Buy Now</a></td>
-            </tr>
+            <div class='clothing-item center'>
+                <h4>{{ title_case(item.name) }} </h4>
+                <img src="{{ item.link }}" alt="{{ item.name }}" class="clothing-image">
+                <p><button><a href="/add_to_cart/{{ item.article_id }}">Buy Now</a></button></p>
+                <p>{{ item.description }} </p>
+                <p>{{ "$%.2f"|format(item.price) }} </p>
+            </div>
         {% endfor %}
-        </table>
+          </div>
     </body>
 </html>

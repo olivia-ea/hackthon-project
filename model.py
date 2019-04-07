@@ -27,7 +27,8 @@ class Clothing(Base):
     retailer = Column(String(30))
     description = Column(String(250))
     price = Column(Float, nullable=False)
-    link = Column(String(50))
+    link = Column(String(50), nullable=False)
+
 
     @property
     def serialize(self):
@@ -36,6 +37,7 @@ class Clothing(Base):
             'description' : self.description,
             'article_id' : self.article_id,
             'retailer' : self.retailed,
+
             'price' : self.price,
             'link' : self.link
             }

@@ -15,27 +15,64 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+        <link rel="stylesheet" href="../static/css/cart.css">
     </head>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                         <a class="nav-link" href="/">Homepage</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/olivia-ea/hackthon-project">Github</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/logout">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     <body>
-        Total Price: $ {{ order_total }} <br />
-        <table>
-        <tr>
-            <th>Item Name</th>
-            <th>Item Price</th>
-            <th>Item Quantity</th>
-            <th>Item Total Cost</th>
-        </tr>
-        {% for item in cart %}
-        <tr>
-            <td>{{ title_case(item.name) }}</td>
-            <td>${{ item.price }}</td>
-            <td>{{ item.quantity }}</td>
-            <td>${{ item.total_cost }}</td>
-        </tr>
-        {% endfor %}
-        </table>
-        <button onclick="goBack()">Go Back</button>
-        <button onclick="completeOrder()">Complete Order</button>
+        <br>
+        <br>
+        <br>
+        <center>
+        <div>
+            <table class="table-bordered table table-hover">
+            <tr>
+                <th>Item Name</th>
+                <th>Item Price</th>
+                <th>Item Quantity</th>
+                <th>Item Total Cost</th>
+            </tr>
+            {% for item in cart %}
+            <tr>
+                <td>{{ title_case(item.name) }}</td>
+                <td>${{ item.price }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>${{ item.total_cost }}</td>
+            </tr>
+            {% endfor %}
+            </table>
+        </div>
+        <br>
+        <h3>Total Price: $ {{ order_total }}</h3>
+ 
+        <br>
+        <div>
+            <button type="button" class="btn btn-outline-dark" onclick="goBack()">Go Back</button>
+            <button type="button" class="btn btn-outline-dark" onclick="completeOrder()">Complete Order</button>
+        </div>
+        </center>
     </body>
     <script>
         function goBack(){

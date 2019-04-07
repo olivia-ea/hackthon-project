@@ -13,6 +13,11 @@ Slashed: A marketplace that provides clothing at a discounted rate for people in
 
 ## Installation 
 
+Note: Also deployed via Digital Ocean. 
+```
+http://159.89.154.13:5000/
+```
+
 To run Slashed on local computer, follow the below steps:
 
 Clone repository: 

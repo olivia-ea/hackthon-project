@@ -60,8 +60,8 @@ Open localhost:5000 on browser.
 
 ## Demo
 
-![](slashed-1.gif)
+![](./static/slashed-gifs/slashed-1.gif)
 
-![](slashed-2.gif)
+![](./static/slashed-gifs/slashed-2.gif)
 
-![](slashed-3.gif)
+![](./static/slashed-gifs/slashed-3.gif)

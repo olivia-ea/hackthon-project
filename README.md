@@ -41,11 +41,6 @@ Install dependencies:
 $ pip install -r requirements.txt
 ```
 
-Create database 'users':
-```
-$ createdb users
-```
-
 Create your database tables:
 ```
 $ python3 model.py
@@ -62,6 +57,11 @@ Open localhost:5000 on browser.
 
 ![](./static/slashed-gifs/slashed-1.gif)
 
+The user is able to read about the mission statement behind Slashed. 
+
 ![](./static/slashed-gifs/slashed-2.gif)
 
+After the user has created an account or logged into an existing account, they are able to browse the inventory and add to his/her cart.
+
 ![](./static/slashed-gifs/slashed-3.gif)
+The user is also able to check their cart and check out.

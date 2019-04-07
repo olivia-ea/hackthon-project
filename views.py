@@ -26,6 +26,8 @@ engine = create_engine('sqlite:///clothingapp.db',\
 
 
 
+
+
 # initializes a new database session connected to the
 # sqlite3 engine. Using this object will allow you to
 # add and query the database.
@@ -41,6 +43,15 @@ db_session = db_session()
 #       session.commit()
 
 
+def cart_item_title_case(string):
+    return ' '.join([x.title() for x in string.split('-')])
+
+
+def money_format(integer):
+    return "%.2f" % (integer)
+
+app.jinja_env.globals.update(title_case=cart_item_title_case)
+app.jinja_env.globals.update(money_format=money_format)
 
 @app.route('/')
 def index():
@@ -200,6 +211,11 @@ def add_to_cart(clothing_id):
     # Redirect to shopping cart page
     return redirect("/cart")
 
+
+@app.route("/complete_order/")
+def complete_order():
+    session['cart'] = {}
+    return render_template("order_complete.html")
 
 @app.route("/checkout")
 def checkout():

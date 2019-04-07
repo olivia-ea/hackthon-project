@@ -12,37 +12,41 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+
+    <link rel="stylesheet" href="../static/css/homepage.css">
+
 </head>
 
 
 
-<body class="colorful">
+<body>
 
     <!-- START NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/olivia-ea/hackthon-project">Github</a>
+                </li>
+            </ul>
 
-            <li class="nav-item">
-                <a class="nav-link" href="./">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Get Stuff</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Give Stuff</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./login-current-user">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./about">About</a>
-            </li>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="/register-new-user">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/login-current-user">Register</a>
+                </li>
+            </ul>
 
         <!-- Dont need a dropdown right now
             <li class="nav-item dropdown">
@@ -60,6 +64,77 @@
         </div>
         <!-- END NAVBAR-->
       </nav>
-    <h2>Don't be impoverished, Be ImpoverPOSHed!</h2>
+
+<div id="background-img" class="container-fluid text-center light-text">
+    <div class="homepage-header-row row">
+        <h1 id="main-title-homepage">PROJECT<br>TITLE</h1>
+    </div>
+
+</div>
+
+<div id="about section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <a id="about"></a>
+                        <blockquote>OUR MISSION</blockquote>
+                    </div>
+
+                    <div class="col-lg-9">
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="goals">
+
+    
+</div>
+<!-- 
+
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <a id="about"><h1>PROJECT TITLE</h1></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                         -->
+
+
+
+
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

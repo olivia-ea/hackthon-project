@@ -115,6 +115,37 @@ def display_package_clothing():
 
     clothes = db_session.query(Clothing).all()
 
+    clothing = {}
+
+    '''
+    class Clothing(Base):
+    __tablename__ = 'clothes'
+
+    name = Column(String(50), nullable=False)
+    article_id = Column(Integer, primary_key=True)
+    lot_number = Column(Integer, nullable=False)
+    retailer = Column(String(30))
+    description = Column(String(250))
+    price = Column(Float, nullable=False)'''
+
+    with open(filepath) as file:
+        for line in file:
+            (name,
+             article_id,
+             lot_number,
+             retailer,
+             description,
+             price) = line.strip().split("|")
+    
+            price = float(price)
+    
+            clothing[article_id] = Clothing(name,
+                                             article_id,
+                                             lot_number,
+                                             retailer,
+                                             description,
+                                             price)
+
     return render_template("display_clothing.html", clothing=clothing)
 
 @app.route("/cart")

@@ -1,0 +1,20 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <table>
+        {% for item in clothing %}
+            <tr>
+                <td>Item name: {{ item.name }} </td>
+                <td>Item Id: {{ item.article_id }} </td>
+                <td>Item is in Lot#: {{ item.lot_number }} </td>
+                <td>Item sold by retailer: {{ item.retailer }} </td>
+                <td>Item Description: {{ item.description }} </td>
+                <td>Item Price: {{ item.price }} </td>
+                <td><img src="{{ item.link }}" alt="{{ item.name }}" width=200px height=200px></td>
+                <td><a href="/add_to_cart/{{ item.article_id }}">Buy Now</a></td>
+            </tr>
+        {% endfor %}
+        </table>
+    </body>
+</html>

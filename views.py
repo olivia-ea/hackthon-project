@@ -109,12 +109,39 @@ def about():
 
     return render_template('about.html')
 
+def generate_item(line):
+    item = [x.strip() for x in line.split('|')]
+    name = item[0]
+    article_id = int(item[1])
+    lot_number
+
 @app.route("/shopping-page")
 def display_package_clothing():
     """Display page for bulk clothing package."""
 
-    clothes = db_session.query(Clothing).all()
 
+    # name, articleid, lot number, retailer, desciription, price, link
+
+    item_list = []
+    if db_session.query(Clothing).count() < 5:
+        with open("clothing.txt") as f:
+            for line in f:
+                item = [x.strip() for x in line.split('|')]
+                if len(item) < 7:
+                    continue
+                new_clothing = Clothing(
+                        name=item[0],
+                        article_id=int(item[1]),
+                        lot_number=int(item[2]),
+                        retailer=item[3],
+                        description=item[4],
+                        price=item[5],
+                        link=item[6],
+                        )
+                db_session.add(new_clothing)
+                db_session.commit()
+    clothing = db_session.query(Clothing).all()
+    print(clothing)
     return render_template("display_clothing.html", clothing=clothing)
 
 @app.route("/cart")
@@ -129,7 +156,7 @@ def display_shopping_cart():
 
     for clothing_id, quantity in cart.items():
         # Retrieve the clothing object corresponding to this id
-        clothing = db_session.query(Clothing).all()
+        clothing = db_session.query(Clothing).filter_by(article_id = clothing_id).first()
 
         # Calculate the total cost for this type of clothing and add it to the
         # overall total for the order
@@ -149,7 +176,7 @@ def display_shopping_cart():
                            order_total=order_total)
 
 @app.route("/add_to_cart/<clothing_id>")
-def add_to_cart(melon_id):
+def add_to_cart(clothing_id):
     """Add a clothing item to cart and redirect to shopping cart page.
 
     When clothing is added to the cart, redirect browser to the shopping cart
@@ -166,11 +193,13 @@ def add_to_cart(melon_id):
     # or add to cart with a count of 1
     cart[clothing_id] = cart.get(clothing_id, 0) + 1
 
+    session['cart'] = cart
     # Show user success message on next page load
     flash("Item successfully added to cart.")
 
     # Redirect to shopping cart page
     return redirect("/cart")
+
 
 @app.route("/checkout")
 def checkout():

@@ -64,4 +64,5 @@ The user is able to read about the mission statement behind Slashed.
 After the user has created an account or logged into an existing account, they are able to browse the inventory and add to his/her cart.
 
 ![](./static/slashed-gifs/slashed-3.gif)
-The user is also able to check their cart and check out.
+
+The user is also able to look at the contents of his/her cart and check out.

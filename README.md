@@ -1,5 +1,6 @@
 # hackthon-project
 Slashed: A marketplace that provides clothing at a discounted rate for people in need. 
+Created by: Olivia Ea, Brian Bauer, Levin Weinstein 
 
 ## Table of Contents
 * [Tech Stack](#techstack) 

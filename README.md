@@ -8,7 +8,7 @@ Slashed: A marketplace that provides clothing at a discounted rate for people in
 
 
 ## TechStack
-* Frontend: HTML5, JavaScript, Jinja, jQuery, Bootstrap 
+* Frontend: HTML5, JavaScript, Jinja2, Bootstrap 
 * Backend: Python, Flask, SQLite3, SQLAlchemy 
 
 ## Installation 
@@ -28,7 +28,7 @@ $ https://github.com/olivia-ea/hackthon-project.git
 Set up virtual environment: 
 
 ```
-$ virtualenv env
+$ virtualenv venv
 ```
 
 Activate virtual envirnoment:
